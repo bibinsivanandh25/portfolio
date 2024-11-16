@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer utilities {
+  .nav {
+    @apply relative hover:text-neutral-500 transition;
+  }
+  .nav::after {
+    @apply content-[""] bg-purple-800 h-[3px] w-[0%] left-0
+     absolute -bottom-[5px] rounded-xl duration-300;
+  }
+  .nav:hover::after {
+    @apply w-full;
+  }
+}
