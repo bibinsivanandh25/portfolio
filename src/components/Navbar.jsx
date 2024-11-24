@@ -1,30 +1,3 @@
-// import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
-
-// const Navbar = () => {
-//   return (
-//     <nav className="mb-20 flex items-center justify-between py-6">
-//       <div className="flex flex-shrink-0 items-center">
-//         <a href="#" className="mx-2 text-5xl">
-//           B
-//         </a>
-//       </div>
-//       <div className="flex items-center justify-center gap-4 m-8 text-2xl">
-//         <a href="https://www.linkedin.com/in/bibincs/" target="_blank">
-//           <FaLinkedin />
-//         </a>
-//         <a href="https://github.com/bibinsivanandh25" target="_blank">
-//           <FaGithub />
-//         </a>
-
-//         <FaTwitter />
-//         <FaInstagram />
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 import { useState } from 'react';
 import {
   FaLinkedin,
