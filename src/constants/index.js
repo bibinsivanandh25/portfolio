@@ -2,6 +2,7 @@ import project1 from '../assets/projects/project-1.jpg';
 import project2 from '../assets/projects/project-2.jpg';
 import project3 from '../assets/projects/project-3.jpg';
 import project4 from '../assets/projects/project-4.jpg';
+import project5 from '../assets/projects/project-5.jpg';
 
 export const HERO_CONTENT = `I am a passionate front-end developer with a focus on crafting responsive and user-friendly web applications. With 2 years of hands-on experience, I have honed my skills in technologies like React, HTML, CSS, and JavaScript. My goal is to leverage my expertise to create intuitive, high-performance user interfaces that deliver exceptional user experiences and contribute to the success of the product.`;
 
@@ -20,7 +21,7 @@ export const EXPERIENCES = [
     role: 'Frontend Developer',
     company: 'Test Yantra Software Solutions Pvt LTD',
     description: `Designed and developed user interfaces for web applications using React. Collaborated closely with backend developers to integrate frontend components with APIs. Implemented responsive designs and optimized frontend performance for better user experience.`,
-    technologies: ['HTML', 'CSS', 'javascript', 'React.js', 'React Native'],
+    technologies: ['HTML', 'CSS', 'Javascript', 'React.js', 'React Native'],
   },
   // {
   //   year: '2021 - 2022',
@@ -55,9 +56,9 @@ export const PROJECTS = [
       'HTML',
       'CSS',
       'React.js',
-      'styled-components',
-      'react-query',
-      'supabase',
+      'Styled-Components',
+      'React-Query',
+      'Supabase',
     ],
     githubUrl: 'https://github.com/bibinsivanandh25/the-react-wild-oasis',
     liveDemoURL: 'https://the-react-wild-oasis.vercel.app',
@@ -77,6 +78,22 @@ export const PROJECTS = [
     technologies: ['HTML', 'CSS', 'React.js', 'Tailwind css'],
     githubUrl: 'https://github.com/bibinsivanandh25/restaurant_ui_reactjs',
     liveDemoURL: 'https://restaurant-ui-reactjs.vercel.app/',
+  },
+  {
+    title: 'MovieFlip — Search, Discover & Explore Movies ',
+    image: project5,
+    description: `MovieFlip is a React application that fetches and displays movie data from the TMDB API, with trending movies stored in Appwrite for persistence. Users can search for movies, navigate through paginated results, and view detailed movie information.`,
+    technologies: [
+      'HTML',
+      'CSS',
+      'React.js',
+      'Tailwind css',
+      'React Query',
+      'Supbase',
+      'TMDB API',
+    ],
+    githubUrl: 'https://github.com/bibinsivanandh25/movieflip',
+    liveDemoURL: 'https://movieflipv1.vercel.app/',
   },
 ];
 
