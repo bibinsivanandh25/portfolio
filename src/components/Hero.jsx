@@ -14,7 +14,7 @@ const container = (delay) => ({
 const Hero = () => {
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-36">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
@@ -37,20 +37,20 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="font-light tracking-tighter my-2 max-w-xl py-6"
+              className="font-light leading-7 my-2 max-w-xl py-6 text-justify"
             >
               {HERO_CONTENT}
             </motion.p>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 lg:p-8">
+        <div className="w-full lg:w-1/2 lg:px-8">
           <div className="flex justify-center opacity-50">
             <motion.img
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
               src={profilePic}
-              className="rounded-2xl"
+              className="rounded-2xl w-full md:w-[500px]"
               alt="Bibin CS"
             />
           </div>

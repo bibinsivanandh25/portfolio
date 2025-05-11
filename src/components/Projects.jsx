@@ -16,7 +16,7 @@ const Projects = () => {
         {PROJECTS.map((project, index) => (
           <div
             key={index}
-            className="flex flex-wrap lg:justify-center mb-14  lg:mb-10 "
+            className="flex flex-wrap items-center lg:items-start lg:justify-center mb-14 lg:mb-10 "
           >
             <motion.div
               initial={{ x: -100, opacity: 0 }}
@@ -29,8 +29,7 @@ const Projects = () => {
               className="w-full lg:w-1/4 mt-0 lg:mt-2"
             >
               <img
-                className="mb-6 rounded w-full lg:w-[200px]
-                "
+                className="mb-6 rounded w-full lg:w-[200px]"
                 src={project.image}
                 alt={project.title}
               />
@@ -39,19 +38,23 @@ const Projects = () => {
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="w-full lg:w-3/4 max-w-xl"
+              className="w-full lg:w-3/4 lg:max-w-xl flex flex-col items-center lg:items-start"
             >
               <h6 className="mb-2 font-semibold">{project.title}</h6>
-              <p className="mb-4 text-neutral-400">{project.description}</p>
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-neutral-900 text-purple-800 text-sm font-medium px-2 py-1 mr-2 rounded"
-                >
-                  {tech}
-                </span>
-              ))}
-              <div className="flex items-center gap-4 mt-6">
+              <p className="mb-4 text-neutral-400 leading-7 text-justify">
+                {project.description}
+              </p>
+              <div className="flex items-center justify-start md:justify-center lg:justify-start flex-wrap gap-2 w-full">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-neutral-900 text-purple-800 text-sm font-medium px-2 py-1 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center justify-start md:justify-center lg:justify-start gap-4 mt-6 w-full">
                 <a
                   className="border-2 border-purple-800 bg-neutral-900 rounded-xl px-4 py-2 hover:bg-neutral-800 transition duration-100"
                   href={project.githubUrl}

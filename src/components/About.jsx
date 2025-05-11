@@ -27,8 +27,10 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="w-full lg:w-1/2"
         >
-          <div className="flex flex-col justify-center pb-4 mt-8">
-            <p className="my-2 max-w-xl py-6">{ABOUT_TEXT}</p>
+          <div className="flex flex-col items-center lg:items-start justify-center pb-4 mt-8">
+            <p className="my-2 max-w-xl py-6 leading-7 text-justify">
+              {ABOUT_TEXT}
+            </p>
 
             <a className="flex" href={resume} download="Resume" target="_blank">
               <div className="flex gap-3 border-2  border-purple-800  bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] rounded-md px-4 py-2">

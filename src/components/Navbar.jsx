@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="mb-20 flex items-center justify-between py-6 px-4 lg:px-10">
+    <nav className="mb-10 sm:mb-20 flex items-center justify-between py-6 px-4 lg:px-10">
       {/* Logo Section */}
       <div className="flex items-center">
         <a href="#" className="text-5xl font-medium">
