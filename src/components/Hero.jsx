@@ -50,7 +50,7 @@ const Hero = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
               src={profilePic}
-              className="rounded-2xl w-full md:w-[500px]"
+              className="rounded-2xl w-full md:w-[500px] lg:w-full"
               alt="Bibin CS"
             />
           </div>
