@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaCss3Alt, FaHtml5, FaJs } from 'react-icons/fa';
 import { RiReactjsLine, RiTailwindCssFill } from 'react-icons/ri';
-import { SiMui, SiReactquery, SiRedux } from 'react-icons/si';
+import { SiMui, SiReactquery, SiRedux, SiNextdotjs } from 'react-icons/si';
 
 const iconVariants = (duration) => ({
   initial: { y: -10 },
@@ -64,6 +64,14 @@ const Technologies = () => {
           className="border-4 border-neutral-800 p-4 rounded-2xl"
         >
           <RiReactjsLine className="text-7xl text-cyan-400" />
+        </motion.div>
+        <motion.div
+          variants={iconVariants(4)}
+          initial="initial"
+          animate="animate"
+          className="border-4 border-neutral-800 p-4 rounded-2xl"
+        >
+          <SiNextdotjs className="text-7xl fill-white" />
         </motion.div>
         <motion.div
           variants={iconVariants(5)}
