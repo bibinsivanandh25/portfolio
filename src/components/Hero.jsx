@@ -21,7 +21,7 @@ const Hero = () => {
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="text-6xl lg:text-8xl font-thin tracking-tight pb-16 lg:mt-16"
+              className="text-6xl lg:text-8xl font-thin tracking-tight pb-10 lg:mt-16"
             >
               Bibin C S
             </motion.h1>
@@ -37,7 +37,7 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="font-light leading-7 my-2 max-w-xl py-6 text-justify tracking-normal"
+              className="font-light leading-7 my-2 max-w-xl py-4 text-justify tracking-normal"
             >
               {HERO_CONTENT}
             </motion.p>

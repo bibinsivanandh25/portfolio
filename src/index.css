@@ -10,13 +10,35 @@
 
 @layer utilities {
   .nav {
-    @apply relative hover:text-neutral-500 transition;
+    @apply relative hover:text-neutral-500 transition-all duration-200;
   }
-  .nav::after {
-    @apply content-[""] bg-purple-800 h-[3px] w-[0%] left-0
+  .nav::before {
+    @apply content-[""] bg-purple-800 h-[3px] w-0 left-0
      absolute -bottom-[5px] rounded-xl duration-300;
   }
-  .nav:hover::after {
+  .nav:hover::before {
     @apply w-full;
+  }
+
+  .cvContainer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #7e22ce;
+    z-index: 0;
+
+    /* Start completely outside on the left */
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+  }
+
+  /* Slide in */
+  .cvContainer:hover::before {
+    transform: translateX(0);
+  }
+
+  .cvContainer > * {
+    position: relative;
+    z-index: 1;
   }
 }

@@ -5,7 +5,7 @@ import project4 from '../assets/projects/project-4.jpg';
 import project5 from '../assets/projects/project-5.jpg';
 
 export const HERO_CONTENT = `
-I’m a front-end developer specializing in building fast, scalable, and user-focused web applications. With 2.8 years of experience, I work extensively with Next.js, React, React Query, and Tailwind CSS to deliver clean architectures, efficient data-fetching flows, and fully responsive UIs. I focus on performance, usability, and maintainability—creating interfaces that feel seamless and support real product growth.
+I’m a front-end developer specializing in building fast, scalable, and user-focused web applications. With 2.8 years of experience, I work extensively with Next.js, React, React Query, and Tailwind CSS to deliver clean architectures, efficient data-fetching flows, and fully responsive UI's. I focus on performance, usability, and maintainability—creating interfaces that feel seamless and support real product growth.
 `;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile front-end developer with a passion for creating efficient, intuitive, and user-friendly web applications. With 2.8 years of professional experience, I have worked with a variety of technologies, including Next.js, React, JavaScript, and HTML/CSS. My journey in front-end development began with a curiosity for how user interfaces work, and it has evolved into a career where I continuously strive to enhance user experience through clean, responsive designs. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality, scalable solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;

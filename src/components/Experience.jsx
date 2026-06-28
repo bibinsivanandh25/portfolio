@@ -27,7 +27,7 @@ const Experience = () => {
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="w-full lg:max-w-xl lg:w-3/4 flex flex-col lg:items-start items-center"
+              className="w-full lg:max-w-xl lg:w-3/4 flex flex-col items-start"
             >
               <h6 className="font-semibold mb-2">
                 {experience.role} -{' '}

@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../constants';
+import { MdArrowOutward } from 'react-icons/md';
+import { FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
   return (
@@ -29,7 +31,7 @@ const Projects = () => {
               className="w-full lg:w-1/4 mt-0 lg:mt-2"
             >
               <img
-                className="mb-6 rounded w-full lg:w-[200px]"
+                className="mb-6 rounded w-full lg:w-[200px] object-contain"
                 src={project.image}
                 alt={project.title}
               />
@@ -40,7 +42,7 @@ const Projects = () => {
               transition={{ duration: 1 }}
               className="w-full lg:w-3/4 lg:max-w-xl flex flex-col items-center lg:items-start"
             >
-              <h6 className="mb-2 font-semibold">{project.title}</h6>
+              <h6 className="mb-2 font-semibold text-lg">{project.title}</h6>
               <p className="mb-4 text-neutral-400 leading-7 text-justify">
                 {project.description}
               </p>
@@ -54,20 +56,22 @@ const Projects = () => {
                   </span>
                 ))}
               </div>
-              <div className="flex items-center justify-start md:justify-center lg:justify-start gap-4 mt-6 w-full">
+              <div className="flex md:items-center justify-start md:justify-center lg:justify-start gap-4 mt-6 w-full flex-wrap flex-col md:flex-row items-start">
                 <a
-                  className="border-2 border-purple-800 bg-neutral-900 rounded-xl px-4 py-2 hover:bg-neutral-800 transition duration-100"
+                  className="border-2 border-purple-800 bg-neutral-900 rounded-lg px-4 py-2 hover:bg-neutral-800 transition duration-100 group whitespace-nowrap flex items-center gap-2"
                   href={project.githubUrl}
                   target="_blank"
                 >
-                  <div className="font-semibold text-sm">GitHub</div>
+                  <div className="font-semibold text-sm">Source Code</div>
+                  <FaGithub className="text-lg transition-transform duration-300 group-hover:rotate-12" />
                 </a>
                 <a
-                  className="border-2 border-purple-800 bg-neutral-900 rounded-xl px-4 py-2 hover:bg-neutral-800 transition duration-100"
+                  className="border-2 border-purple-800 bg-neutral-900 rounded-lg px-4 py-2 hover:bg-neutral-800 transition duration-100 flex items-center gap-2 group"
                   href={project.liveDemoURL}
                   target="_blank"
                 >
                   <div className="font-semibold text-sm">Live Demo</div>
+                  <MdArrowOutward className="text-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
               </div>
             </motion.div>
