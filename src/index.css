@@ -8,6 +8,14 @@
   font-family: 'Inter', sans-serif;
 }
 
+section,
+#about,
+#technologies,
+#experience,
+#projects {
+  scroll-margin-top: 100px;
+}
+
 @layer utilities {
   .nav {
     @apply relative hover:text-neutral-500 transition-all duration-200;
@@ -35,10 +43,5 @@
   /* Slide in */
   .cvContainer:hover::before {
     transform: translateX(0);
-  }
-
-  .cvContainer > * {
-    position: relative;
-    z-index: 1;
   }
 }

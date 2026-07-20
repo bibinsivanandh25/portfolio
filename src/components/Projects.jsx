@@ -3,9 +3,18 @@ import { PROJECTS } from '../constants';
 import { MdArrowOutward } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
+
 const Projects = () => {
   return (
-    <div id="projects" className="border-b border-neutral-900 pb-4">
+    <div id="projects" className="border-b border-neutral-900 pb-16">
       <motion.h2
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -14,68 +23,92 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
-      <div>
+
+      <div className="flex flex-col gap-16 lg:gap-10">
         {PROJECTS.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex flex-wrap items-center lg:items-start lg:justify-center mb-14 lg:mb-10 "
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            whileHover={{ y: -6 }}
+            className="group relative flex flex-wrap items-center lg:items-start lg:justify-center
+                       gap-6 lg:gap-10 rounded-2xl border border-neutral-900 p-4 lg:p-6
+                       transition-colors duration-300 hover:border-purple-800/60"
           >
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              whileHover={{
-                scale: 1.2,
-                transition: { duration: 0.3 },
+            {/* Soft glow on hover */}
+            <div
+              className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0
+                         transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(600px circle at 50% 0%, rgba(168,85,247,0.08), transparent 70%)',
               }}
-              className="w-full lg:w-1/4 mt-0 lg:mt-2"
-            >
+            />
+
+            {/* Image */}
+            <div className="w-full overflow-hidden rounded-xl lg:w-1/4 lg:mt-2">
               <img
-                className="mb-6 rounded w-full lg:w-[200px] object-contain"
+                className="h-full w-full object-contain transition-transform duration-500 ease-out
+                           group-hover:scale-110 lg:w-[300px]"
                 src={project.image}
                 alt={project.title}
               />
-            </motion.div>
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-3/4 lg:max-w-xl flex flex-col items-center lg:items-start"
-            >
-              <h6 className="mb-2 font-semibold text-lg">{project.title}</h6>
-              <p className="mb-4 text-neutral-400 leading-7 text-justify">
+            </div>
+
+            {/* Content */}
+            <div className="flex w-full flex-col items-center lg:w-3/4 lg:max-w-xl lg:items-start">
+              <h6 className="mb-2 text-lg font-semibold">
+                <span className="bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text">
+                  {project.title}
+                </span>
+              </h6>
+              <p className="mb-4 text-justify leading-6 text-neutral-400">
                 {project.description}
               </p>
-              <div className="flex items-center justify-start md:justify-center lg:justify-start flex-wrap gap-2 w-full">
-                {project.technologies.map((tech, index) => (
+
+              <div className="flex w-full flex-wrap items-center justify-start gap-2 md:justify-center lg:justify-start">
+                {project.technologies.map((tech, i) => (
                   <span
-                    key={index}
-                    className="bg-neutral-900 text-purple-800 text-sm font-medium px-2 py-1 rounded"
+                    key={i}
+                    className="rounded bg-neutral-900 px-3.5 py-1.5 text-sm font-medium text-white
+                               transition-colors duration-200 hover:bg-purple-950/60"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-              <div className="flex md:items-center justify-start md:justify-center lg:justify-start gap-4 mt-6 w-full flex-wrap flex-col md:flex-row items-start">
-                <a
-                  className="border-2 border-purple-800 bg-neutral-900 rounded-lg px-4 py-2 hover:bg-neutral-800 transition duration-100 group whitespace-nowrap flex items-center gap-2"
+
+              <div className="mt-6 flex w-full flex-col flex-wrap items-start gap-4 md:flex-row md:items-center md:justify-center lg:justify-start">
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="group/btn flex items-center gap-2 whitespace-nowrap rounded-lg
+                             border-2 border-purple-800 bg-neutral-900 px-4 py-2
+                             transition-colors duration-200 hover:bg-neutral-800"
                   href={project.githubUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <div className="font-semibold text-sm">Source Code</div>
-                  <FaGithub className="text-lg transition-transform duration-300 group-hover:rotate-12" />
-                </a>
-                <a
-                  className="border-2 border-purple-800 bg-neutral-900 rounded-lg px-4 py-2 hover:bg-neutral-800 transition duration-100 flex items-center gap-2 group"
+                  <div className="text-sm font-semibold">Source code</div>
+                  <FaGithub className="text-lg transition-transform duration-300 group-hover/btn:rotate-12" />
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="group/btn flex items-center gap-2 rounded-lg border-2 border-purple-800
+                             bg-neutral-900 px-4 py-2 transition-colors duration-200 hover:bg-neutral-800"
                   href={project.liveDemoURL}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <div className="font-semibold text-sm">Live Demo</div>
-                  <MdArrowOutward className="text-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </a>
+                  <div className="text-sm font-semibold">Live demo</div>
+                  <MdArrowOutward className="text-xl transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                </motion.a>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -2,9 +2,22 @@ import { motion } from 'framer-motion';
 import { CONTACT } from '../constants';
 import { FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
-import { HiArrowRight } from 'react-icons/hi';
+import { HiArrowRight, HiCheck, HiOutlineClipboard } from 'react-icons/hi';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async (e) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(CONTACT.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="border-b border-neutral-900 pb-20">
       <motion.h2
@@ -40,6 +53,22 @@ const Contact = () => {
             <span className="text-xs sm:text-sm truncate min-w-0">
               {CONTACT.email}
             </span>
+
+            <motion.button
+              onClick={handleCopy}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              aria-label="Copy email address"
+              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border
+                                       border-white/[0.07] bg-white/[0.02] text-neutral-400 transition-colors
+                                       duration-200 hover:border-violet-500/40 hover:text-violet-300"
+            >
+              {copied ? (
+                <HiCheck className="text-emerald-400" />
+              ) : (
+                <HiOutlineClipboard />
+              )}
+            </motion.button>
             <HiArrowRight className="ml-auto flex-shrink-0 opacity-30 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-80" />
           </motion.a>
 
