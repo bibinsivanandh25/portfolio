@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaCss3Alt, FaHtml5, FaJs } from 'react-icons/fa';
 import { RiNextjsFill, RiReactjsLine, RiTailwindCssFill } from 'react-icons/ri';
 import { SiMui, SiReactquery, SiRedux } from 'react-icons/si';
+import PropTypes from 'prop-types';
 
 const floatVariants = (duration) => ({
   animate: {
@@ -54,6 +55,60 @@ const TECHNOLOGIES = [
   { icon: SiMui, label: 'Material UI', color: 'text-blue-500', duration: 5.5 },
 ];
 
+// Flip card: the float-bob still runs on the outer wrapper, but hover now
+// triggers a real 180° rotateY between two faces instead of a tooltip.
+// Both faces are absolutely stacked with backface-visibility: hidden, so
+// only one is ever visible at a time as the card turns.
+const TechCard = ({ icon: Icon, label, color, duration }) => {
+  return (
+    <motion.div
+      variants={gridItem}
+      className="group relative w-fit"
+      style={{ perspective: 1000 }}
+    >
+      <motion.div
+        variants={floatVariants(duration)}
+        animate="animate"
+        className="relative h-[104px] w-[104px] lg:h-[124px] lg:w-[124px]"
+      >
+        <motion.div
+          initial={false}
+          whileHover={{ rotateY: 180 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          style={{ transformStyle: 'preserve-3d' }}
+          className="relative h-full w-full motion-reduce:!transform-none"
+        >
+          {/* Front — icon */}
+          <div
+            style={{ backfaceVisibility: 'hidden' }}
+            className="absolute inset-0 flex items-center justify-center rounded-2xl border-2 border-neutral-800 bg-neutral-950/40 backdrop-blur-sm transition-colors duration-300 group-hover:border-purple-800/60"
+          >
+            <div
+              className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(circle at 50% 30%, rgba(168,85,247,0.15), transparent 70%)',
+              }}
+            />
+            <Icon className={`text-6xl lg:text-7xl ${color}`} />
+          </div>
+
+          {/* Back — label */}
+          <div
+            style={{
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)',
+            }}
+            className="absolute inset-0 flex items-center justify-center rounded-2xl border-2 border-purple-800/60 bg-neutral-950 px-2 text-center"
+          >
+            <span className="text-sm font-medium text-white">{label}</span>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const Technologies = () => {
   return (
     <div id="technologies" className="border-b border-neutral-800 pb-24">
@@ -74,39 +129,8 @@ const Technologies = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="flex flex-wrap items-center justify-center gap-5"
       >
-        {TECHNOLOGIES.map(({ icon: Icon, label, color, duration }) => (
-          <motion.div
-            key={label}
-            variants={gridItem}
-            className="group relative w-fit"
-          >
-            <motion.div
-              variants={floatVariants(duration)}
-              animate="animate"
-              whileHover={{ scale: 1.12, y: 0 }}
-              className="relative rounded-2xl border-2 border-neutral-800 bg-neutral-950/40 p-5
-                         backdrop-blur-sm transition-colors duration-300 group-hover:border-purple-800/60"
-            >
-              <div
-                className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0
-                           transition-opacity duration-300 group-hover:opacity-100"
-                style={{
-                  background:
-                    'radial-gradient(circle at 50% 30%, rgba(168,85,247,0.15), transparent 70%)',
-                }}
-              />
-              <Icon className={`text-6xl lg:text-7xl ${color}`} />
-            </motion.div>
-
-            <span
-              className="absolute top-full left-1/2 mt-2 -translate-x-1/2 translate-y-0
-                         whitespace-nowrap rounded-md bg-neutral-900 px-2 py-1 text-sm text-white
-                         opacity-0 shadow-[0_0_12px_rgba(168,85,247,0.2)] transition-all
-                         duration-300 group-hover:translate-y-1 group-hover:opacity-100"
-            >
-              {label}
-            </span>
-          </motion.div>
+        {TECHNOLOGIES.map((tech) => (
+          <TechCard key={tech.label} {...tech} />
         ))}
       </motion.div>
     </div>
@@ -114,3 +138,11 @@ const Technologies = () => {
 };
 
 export default Technologies;
+
+//? PROP-TYPES
+TechCard.propTypes = {
+  label: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
+  duration: PropTypes.number.isRequired,
+};

@@ -59,9 +59,7 @@ const Contact = () => {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               aria-label="Copy email address"
-              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border
-                                       border-white/[0.07] bg-white/[0.02] text-neutral-400 transition-colors
-                                       duration-200 hover:border-violet-500/40 hover:text-violet-300"
+              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-white/[0.07] bg-white/[0.02] text-neutral-400 transition-colors duration-200 hover:border-violet-500/40 hover:text-violet-300"
             >
               {copied ? (
                 <HiCheck className="text-emerald-400" />

@@ -74,9 +74,7 @@ const Navbar = () => {
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.15, rotate: 360 }}
         transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-        className="flex h-14 w-14 items-center justify-center rounded-full border
-                   border-purple-600 bg-neutral-900 text-3xl font-bold text-purple-500
-                   shadow-lg shadow-purple-500/30 lg:h-16 lg:w-16 lg:text-4xl"
+        className="flex h-14 w-14 items-center justify-center rounded-full border border-purple-600 bg-neutral-900 text-3xl font-bold text-purple-500 shadow-lg shadow-purple-500/30 lg:h-16 lg:w-16 lg:text-4xl"
       >
         B
       </motion.a>
@@ -114,9 +112,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="absolute left-0 top-0 z-50 flex w-full flex-col items-center gap-6
-                       border-b border-neutral-900 bg-neutral-950/95 py-6 text-lg font-medium
-                       backdrop-blur-md"
+            className="absolute left-0 top-0 z-50 flex w-full flex-col items-center gap-6 border-b border-neutral-900 bg-neutral-950/95 py-6 text-lg font-medium backdrop-blur-md"
           >
             <button
               className="self-end mr-4 text-3xl focus:outline-none"

@@ -39,13 +39,11 @@ const About = () => {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative rounded-2xl bg-gradient-to-br from-purple-600/60 via-purple-900/40
-                         to-transparent p-[2px] shadow-[0_0_40px_rgba(147,51,234,0.15)]"
+              className="relative rounded-2xl bg-gradient-to-br from-purple-600/60 via-purple-900/40 to-transparent p-[2px] shadow-[0_0_40px_rgba(147,51,234,0.15)]"
             >
               <div className="overflow-hidden rounded-2xl">
                 <img
-                  className="h-full w-full object-cover grayscale transition-all duration-500
-                             hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
                   src={aboutImg}
                   alt="about"
                 />
@@ -80,17 +78,10 @@ const About = () => {
                 initial="rest"
                 whileHover="hover"
                 whileTap={{ scale: 0.96 }}
-                className="cvContainer group relative inline-flex items-center gap-3 overflow-hidden
-                           rounded-md border-2 border-purple-800 bg-neutral-900
-                           bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
-                           px-4 py-2 leading-none transition-colors duration-300 hover:bg-purple-800"
+                className="cvContainer group relative inline-flex items-center gap-3 overflow-hidden rounded-md border-2 border-purple-800 bg-neutral-900 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] px-4 py-2 leading-none transition-colors duration-300 hover:bg-purple-800"
               >
                 {/* Shine sweep on hover */}
-                <span
-                  className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12
-                             bg-white/10 opacity-0 transition-all duration-700
-                             group-hover:left-[120%] group-hover:opacity-100"
-                />
+                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/10 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
                 <span className="relative leading-none">Download CV</span>
                 <motion.span
                   className="relative inline-flex items-center text-2xl leading-none"
